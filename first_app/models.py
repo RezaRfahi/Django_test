@@ -22,3 +22,6 @@ class Comment(models.Model):
     info=models.ForeignKey(Info, on_delete=models.CASCADE)
     comment_title=models.CharField(max_length=50)
     comment_dsc=models.CharField(max_length=350)
+
+    def __str__(self) -> str:
+        return self.comment_title

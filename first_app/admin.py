@@ -5,10 +5,21 @@ from typing import Text
 
 # Register your models here.
 
+class AuthorInline(admin.TabularInline):
+    '''Tabular Inline View for '''
+    model = models.Info
+    extra = 1
+
 @admin.register(models.Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display=['name','family']
+    inlines=[AuthorInline]
 
 @admin.register(models.Info)
 class InfoAdmin(admin.ModelAdmin):
     list_display=['title']
+    
+
+@admin.register(models.Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display=['comment_title']

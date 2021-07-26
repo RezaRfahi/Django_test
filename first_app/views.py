@@ -10,8 +10,5 @@ class index(generic.TemplateView):
     
     def get_context_data(self, **kwargs) :
         context=super().get_context_data(**kwargs)
-        context['image_info']=models.Info.objects.all()
-        context['title_info']=models.Info.objects.all()
-        context['dsc_info']=models.Info.objects.all()
-        context['author_info']=models.Info.objects.all()
+        context['info_list']=models.Info.objects.all()
         return context

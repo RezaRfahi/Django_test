@@ -17,3 +17,8 @@ class Info(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+class Comment(models.Model):
+    info=models.ForeignKey(Info, on_delete=models.CASCADE)
+    comment_title=models.CharField(max_length=50)
+    comment_dsc=models.CharField(max_length=350)

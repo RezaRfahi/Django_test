@@ -6,5 +6,7 @@ from django.conf.urls import url
 app_name='first_app'
 
 urlpatterns = [
-    url(r'^$',views.index.as_view(),name='index')
+    url(r'^$',views.index.as_view(),name='index'),
+    url(r'^(?P<pk>\w+)/$',views.info_detail.as_view(),name='detail')
+    
 ]

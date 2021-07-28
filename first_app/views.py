@@ -12,3 +12,7 @@ class index(generic.TemplateView):
         context=super().get_context_data(**kwargs)
         context['info_list']=models.Info.objects.all()
         return context
+
+class info_detail(generic.DetailView):
+    template_name='first_app/detail.html'
+    model=models.Info

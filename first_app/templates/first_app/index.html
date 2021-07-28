@@ -13,7 +13,7 @@
                 <div class="card-body">
                    <h3 class="card-title" style="font-size: 130%;font-weight: bold;">{{info.title}}</h3>
                    <p class="card-text" dir="rtl">{{info.dsc}}</p>
-                   <a href="software.html" class="btn btn-primary">نمایش</a>
+                   <a href="{% url 'first_app:detail' info.title %}" class="btn btn-primary">نمایش</a>
                       
                     <p style="font-size: 90%">نویسنده: {{info.author}} </p>
                     <p style="font-size: 80%">{{info.pub_date}} </p>

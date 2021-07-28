@@ -1,4 +1,4 @@
-{% extends 'first_app/detailpattern.html' %}
+{% extends 'first_app/pattern.html' %}
  
 
 {% for info in info_list %}
@@ -10,7 +10,7 @@
  {% endblock title %}
      
 
-{% block data %}
+{% block card %}
 
 <div text-align="center" class="card-body">
     <img src="images/oop.png" width="50%" alt="image not found" class="img-thumbnail">
@@ -23,5 +23,5 @@
           </p>
           </div>
     
-{% endblock data %}
+{% endblock card %}
 {% endfor %}

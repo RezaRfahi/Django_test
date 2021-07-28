@@ -1,5 +1,14 @@
 {% extends 'first_app/detailpattern.html' %}
+ 
 
+{% for info in info_list %}
+
+
+    
+ {% block title %}
+     {{info.title}}
+ {% endblock title %}
+     
 
 {% block data %}
 
@@ -7,12 +16,12 @@
     <img src="images/oop.png" width="50%" alt="image not found" class="img-thumbnail">
       <br/>
       <h4 class="alert-heading">
-         {{}}
+         {{info.title}}
           </h4>
           <p class="p-3">
-              {{}}
+              {{info.dsc}}
           </p>
           </div>
     
 {% endblock data %}
-    
+{% endfor %}

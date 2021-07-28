@@ -12,15 +12,12 @@
              <div class="card">
                 <img class="card-img-top" src="{% static 'images/software.png' %}" alt="Card image cap">
                 <div class="card-body">
-                   <h3 class="card-title">{{info.title}}</h3>
+                   <h3 class="card-title" style="font-size: 130%;font-weight: bold;">{{info.title}}</h3>
                    <p class="card-text" dir="rtl">{{info.dsc}}</p>
-                   <br><br>
                    <a href="software.html" class="btn btn-primary">نمایش</a>
-                   
-                  {% for authors in info.author_set.all  %}
                       
-                    <p style="font-size: 82%">{{authors.name}} {{authors.family}}</p>
-                  {% endfor %}
+                    <p style="font-size: 90%">نویسنده: {{info.author}} </p>
+                    <p style="font-size: 80%">{{info.pub_date}} </p>
                   </div>
              </div>
           </div>

@@ -2435,7 +2435,7 @@ fieldset:disabled a.btn {
 .btn-primary:hover {
   color: #fff;
   background-color: #4B0796;
-  border-color: #FF802Bf;
+  border-color: #ff802b;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -4616,7 +4616,7 @@ input[type="button"].btn-block {
 
 .card-title {
   margin-bottom: 0.75rem;
-	text-align: right;
+	text-align: center;
 }
 
 .card-subtitle {

@@ -12,9 +12,9 @@ class Info(models.Model):
     author=models.ForeignKey(Author,on_delete=models.CASCADE)
     title=models.CharField(max_length=25)
     dsc=models.TextField()
-    img=models.CharField(max_length=150)
+    img=models.ImageField(upload_to='images', height_field=None, width_field=None, max_length=None)
     pub_date=models.DateTimeField()
-
+     
     def __str__(self) -> str:
         return self.title
 

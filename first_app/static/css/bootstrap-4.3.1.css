@@ -1032,6 +1032,7 @@ pre code {
     max-width: 25%;
   }
   .col-md-4 {
+    width: 100%;
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
@@ -4615,6 +4616,7 @@ input[type="button"].btn-block {
 }
 
 .card-title {
+  width: 100%;
   margin-bottom: 0.75rem;
 	text-align: center;
 }

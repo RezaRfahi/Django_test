@@ -1,7 +1,10 @@
 from first_app import views
 from django.contrib import admin
 from django.urls import path,include
-from django.conf.urls import url
+from django.conf.urls import url,static
+from django.conf import settings
+
+
 
 app_name='first_app'
 
@@ -10,3 +13,5 @@ urlpatterns = [
     url(r'^(?P<pk>\w+)/$',views.info_detail.as_view(),name='detail')
     
 ]
+if settings.DEBUGS :
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

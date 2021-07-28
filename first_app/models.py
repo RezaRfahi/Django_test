@@ -14,6 +14,7 @@ class Info(models.Model):
     dsc=models.TextField()
     img=models.ImageField(upload_to='images', height_field=None, width_field=None, max_length=None)
     pub_date=models.DateTimeField()
+    
      
     def __str__(self) -> str:
         return self.title

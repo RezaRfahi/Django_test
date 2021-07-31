@@ -4,13 +4,13 @@ from django.urls import path,include
 from django.conf.urls import url,static
 from django.conf import settings
 from . import views
-
+from django.conf.urls.static import static
 
 
 app_name='first_app'
 
 urlpatterns = [
-    url(r'^$',views.index.as_view(),name='index'),
-    url(r'^(?P<pk>\w+)/$',views.info_detail.as_view(),name='detail')
-    
+    path('',views.index.as_view(),name='index'),
+    path('<int:pk>/',views.info_detail.as_view(),name='detail')   
 ]
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

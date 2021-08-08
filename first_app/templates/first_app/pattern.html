@@ -77,23 +77,11 @@
        </div>
        <br/>
        <br/>
-		<form action="#" method="post">
-       <div class="row" dir="rtl">
-            <br/>
-          
-             <div class="card" id="feedback">
-                <div class="card-body">
-					<h5> <strong>بازخورد</strong>شما</h5>
-					<input class="form-control mr-sm-2" type="text" aria-label="Feedback" placeholder="Feedback">
-					<br/>
-					<input class="form-control mr-sm-2" type="email" aria-label="E_mail" placeholder="E_mail">
-                   <p>هرگونه نظر،انتقاد یا پیشنهادی دارید برای ما ارسال کنید</p>
-                   <button type="submit" class="btn-success">ارسال</button> <button type="reset" class="btn-info">بازنشانی</button>
-                </div>
-            
-          </div>
-       </div>
-			</form>
+		
+      {% block comment %}
+      
+      {% endblock comment %}
+         
        <br>
        <hr>
        <div class="row">

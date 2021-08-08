@@ -12,7 +12,7 @@ class Info(models.Model):
     author=models.ForeignKey(Author,on_delete=models.CASCADE)
     title=models.CharField(max_length=25)
     dsc=models.TextField()
-    img=models.ImageField(upload_to='images', height_field=None, width_field=None, max_length=None)
+    img=models.ImageField(upload_to='images/')
     pub_date=models.DateTimeField()
     
      

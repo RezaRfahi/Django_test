@@ -19,3 +19,6 @@ class index(generic.TemplateView):
 class info_detail(generic.DetailView):
     template_name='first_app/detail.html'
     model=models.Info
+
+class about(generic.TemplateView):
+    template_name='first_app/about.html'

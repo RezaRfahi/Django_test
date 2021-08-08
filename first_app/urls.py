@@ -11,6 +11,7 @@ app_name='first_app'
 
 urlpatterns = [
     path('',views.index.as_view(),name='index'),
+    path('about/',views.about.as_view(),name='about'),
     path('<int:pk>/',views.info_detail.as_view(),name='detail')   
 ]
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

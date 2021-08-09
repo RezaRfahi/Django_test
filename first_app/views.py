@@ -1,7 +1,10 @@
+from django.core.checks.messages import Info
 from Django_test.settings import MEDIA_ROOT, MEDIA_URL
 from django.shortcuts import render
 from django.views import generic
 from . import models
+from django import template
+from django.contrib.admin.decorators import register
 
 # Create your views here.
 
@@ -15,6 +18,7 @@ class index(generic.TemplateView):
         context['media_root']=MEDIA_ROOT
         context['media_url']=MEDIA_URL
         return context
+        
 
 class info_detail(generic.DetailView):
     template_name='first_app/detail.html'

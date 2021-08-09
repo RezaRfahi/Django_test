@@ -22,4 +22,4 @@ class InfoAdmin(admin.ModelAdmin):
 
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display=['comment_title']
+    list_display=['commenter_name','comment_title']

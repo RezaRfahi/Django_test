@@ -7,12 +7,15 @@
     
 {% block card %}
     {% for info in info_list %}
+    
           <div class="col-md-4" >
              <div class="card" >
-                <img class="card-img-top" src={{info.img}} alt="Card image cap">
+                <img class="card-img-top" src="{{info.img.url}}" alt="Card image cap">
                 <div class="card-body">
                    <h3 class="card-title" style="font-size: 130%;font-weight: bold;">{{info.title}}</h3>
-                   <p class="card-text" dir="rtl">{{info.dsc}}</p>
+                   <p class="card-text" dir="rtl">
+                       {{info.dsc|truncatechars:45}}
+                       </p>
                    <a href="{% url 'first_app:detail' info.id %}" class="btn btn-primary">نمایش</a>
                       
                     <p style="font-size: 90%">نویسنده: {{info.author}} </p>

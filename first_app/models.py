@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 class Author(models.Model):
     name=models.CharField(max_length=20)
@@ -20,8 +20,11 @@ class Info(models.Model):
 
 class Comment(models.Model):
     info=models.ForeignKey(Info, on_delete=models.CASCADE)
-    commenter_name=models.CharField(max_length=25,null=True)
-    comment_title=models.CharField(max_length=50)
+    commenter_name=models.CharField(max_length=25)
+    comment_title=models.CharField(max_length=50,null=True)
     comment_dsc=models.CharField(max_length=350)
+    send_date=models.DateField(default=timezone.now())
+    comment_like=models.IntegerField(default=0)
+    
     def __str__(self) -> str:
         return self.comment_title

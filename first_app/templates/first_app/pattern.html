@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 {% load static %}
 <html lang="en">
   <head>
@@ -25,6 +25,16 @@
              <li class="nav-item active">
                 <a class="nav-link" href="{% url 'first_app:index' %}">صفحه اصلی <span class="sr-only">(current)</span></a>
              </li>
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               ثبت نام/ورود
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">ساخت حساب کاربری</a>
+                  <a class="dropdown-item" href="/accounts/login/">ورود به حساب</a>
+                  <div class="dropdown-divider"></div>
+               </div>
+            </li>
              <li class="nav-item">
                <a class="nav-link" href="/admin/">پنل مدیریت</a>
             </li>
@@ -50,18 +60,12 @@
           </form>
        </div>
     </nav>
-    
-    {% block about %}
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 class="display-4">وبلاگ دانشجویان نرم افزار</h1>
+      {% block about %}
        
     {% endblock about %}
-       
-   <div class="container">
-      <div class="row text-center" text-align="center">
-         <img class="img-thumbnail" alt="" src="{% static 'images/studen.png' %}">
-        <div class="col-lg-6 offset-lg-3">
-        
-        </div>
-      </div>
+   </div>
 
     <div class="container">
        <div class="row text-center" texe-align="center">
@@ -75,7 +79,8 @@
        <br/>
        <div class="row">
          {% block card %}
-               
+
+                  
          {% endblock card %}
        </div>
        <br/>

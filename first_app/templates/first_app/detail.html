@@ -1,19 +1,14 @@
 {% extends 'first_app/pattern.html' %}
- 
-
-{% for info in info_list %}
-
-
     
  {% block title %}
      {{info.title}}
  {% endblock title %}
      
 
-{% block card %}
-
-<div text-align="center" class="card-body">
-    <img src="{{info.img.url}}" width="50%" alt="image not found" class="img-thumbnail">
+{% block card %}  
+<div class="post">
+  <div text-align="center" class="card-body">
+    <img src="{{info.img.url}}" width="50%"  alt="image not found" class="img-thumbnail">
       <br/>
       <br/>
       <h4 class="alert-heading">
@@ -22,27 +17,89 @@
           <p class="p-3">
               {{info.dsc}}
           </p>
-          </div>
-    
+  </div>
+</div>
 {% endblock card %}
-{% endfor %}
 
 
 {% block comment %}
-<form action="#" method="post">
-    <div class="row" dir="rtl">
-       
-          <div class="card" id="feedback">
-             <div class="card-body">
-                 <h5> <strong>نظر،انتقاد</strong>شما</h5>
-                 <input class="form-control mr-sm-2" type="text" aria-label="Name" placeholder="Feedback">
-                 <br/>
-                 <input class="form-control mr-sm-2" type="email" aria-label="Comment" placeholder="E_mail">
-                 <br/>
-                 <button type="submit" class="btn-success">ارسال</button> <button type="reset" class="btn-info">بازنشانی</button>
-             </div>
-       </div>
+
+<div dir="auto" class="container">
+    <div dir="rtl" class="row">
+        <div dir="rtl" class="col-md-8">
+          <div dir="rtl" class="page-header">
+            <h1 style="text-align: right;"> نظر ها </h1>
+          </div>
+           <div  dir="rtl" class="comments-list">
+               <div class="media">
+                    <div class="media-body">
+                    
+                    {% for cm in info.comment_set.all %}
+                    <div>
+                      <hr width="100%" size="2px">
+                      <h4 style="text-align: right;" class="media-heading user_name">{{cm.commenter_name}}</h4>
+                      <h6 dir="rtl">{{cm.comment_dsc}}</h6>
+                        <div dir="ltr">
+                      <a href="{% url 'first_app:comment' info.id%}" class="d-flex align-items-center me-3">
+                        <small class="mb-0">پسندیدم</small>
+                      </a>
+                      <small class="mb-0" >نعداد پسند {{cm.comment_like}}</small>
+                        </div>
+                      <p style="text-align: right;" class="pull-right"><small>{{cm.send_date}}</small></p>
+                    </div>
+                    {% endfor %}
+                      
+                      <div  class="card-footer py-3 border-3" style="background-color: #f8f9fa;">
+                        <div class="d-flex flex-start w-100">
+                          <div class="form-outline w-100">
+                            <input
+                            placeholder="نام"
+                              type="text"
+                              class="form-control"
+                              id="name"
+                              style="background: #fff;"
+                            />
+                            <input
+                            placeholder="ایمیل (اختیاری)"
+                              type="email"
+                              class="form-control"
+                              id="email"
+                              style="background: #fff;"
+                            /><br/>
+                            <input
+                            placeholder="عنوان (اختیاری)"
+                              type="text"
+                              class="form-control"
+                              id="cm-title"
+                              style="background: #fff;"
+                            />
+                            <textarea
+                              placeholder="توضیحات"
+                              class="form-control"
+                              id="textAreaExample"
+                              rows="4"
+                              style="background: #fff;"
+                            ></textarea>
+                            <label class="form-label" for="textAreaExample">Message</label>
+                          </div>
+                        </div>
+                        <div class="float-end mt-2 pt-1">
+                          <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                    </div>
+                  </div>
+                 
+           </div>
+            
+            
+            
+        </div>
     </div>
-         </form>
+</div>
 {% endblock comment %}
     

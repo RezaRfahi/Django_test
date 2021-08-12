@@ -1,0 +1,65 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>
+      {% block title %}
+          
+      {% endblock title %}
+          </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap-4.3.1.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	</head>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                 <a class="nav-link" href="{% url 'first_app:index' %}">صفحه اصلی <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/">پنل مدیریت</a>
+             </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="{% url 'first_app:about' %}">درباره ما</a>
+              </li>
+              <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 ارتباط با ما
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://www.instagram.com/rezarfahi/">اینستاگرام</a>
+                    <a class="dropdown-item" href="https://virgool.io/@RezaRfahi">سایت ویرگول</a>
+                     <a class="dropdown-item" href="https://github.com/RezaRfahi">GitHub</a>
+                    <div class="dropdown-divider"></div>
+                 </div>
+              </li>
+             
+           </ul>
+        </div>
+     </nav>
+	<body class="img js-fullheight" style="background-image: url({% static 'images/bg.jpg' %});">
+	<section class="ftco-section">
+		<div  class="container">
+            {% block log %}
+                
+            {% endblock log %}
+		</div>
+	</section>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

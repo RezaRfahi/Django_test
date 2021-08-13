@@ -1,5 +1,6 @@
 {% extends 'first_app/pattern.html' %}
-    
+{% csrf_token %}    
+
  {% block title %}
      {{info.title}}
  {% endblock title %}

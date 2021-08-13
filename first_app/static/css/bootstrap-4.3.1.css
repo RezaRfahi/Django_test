@@ -4275,7 +4275,9 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  position: relative;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -4289,6 +4291,8 @@ input[type="button"].btn-block {
 
 .navbar > .container,
 .navbar > .container-fluid {
+  position: fixed;
+  top: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -4300,6 +4304,8 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  position: fixed;
+  top: 0;
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;

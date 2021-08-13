@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 	</head>
+   <body class="img js-fullheight" style="background-image: url({% static 'images/bg.jpg' %});"></body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,14 +46,19 @@
               </li>
              
            </ul>
+           <div id="log_btn">
+           {% block buttonLink %}
+           {% endblock buttonLink %}
+              </div>
         </div>
      </nav>
-	<body class="img js-fullheight" style="background-image: url({% static 'images/bg.jpg' %});">
 	<section class="ftco-section">
-		<div  class="container">
+		<div style="width: 65%;"  class="container">
+         <div class="row justify-content-center" style="background-color: rgba(43, 37, 61, 0.26);">
             {% block log %}
                 
             {% endblock log %}
+         </div>
 		</div>
 	</section>
 
@@ -60,6 +66,9 @@
   <script src="{% static 'js/popper.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
-
+  <script src="{% static 'js/beacon.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-4.3.1.js' %}"></script>
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
 	</body>
 </html>

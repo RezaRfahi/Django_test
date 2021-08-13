@@ -28,6 +28,8 @@ class info_detail(generic.DetailView):
 class about(generic.TemplateView):
     template_name='first_app/about.html'
     
+class signin(generic.TemplateView):
+    template_name='registration/signin.html'
 
 def addComment(request, info_id):
     info = get_object_or_404(models.Info, pk=info_id)

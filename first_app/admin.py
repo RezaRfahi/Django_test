@@ -3,7 +3,6 @@ from . import models
 from django.contrib.admin.decorators import display, register
 from typing import Text
 
-# Register your models here.
 
 class AuthorInline(admin.TabularInline):
     '''Tabular Inline View for '''

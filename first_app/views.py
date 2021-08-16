@@ -1,12 +1,14 @@
 from django.core.checks.messages import Info
 from django.http.response import HttpResponseRedirect
+from django.views.generic.base import View
 from Django_test.settings import MEDIA_ROOT, MEDIA_URL
 from django.shortcuts import render,get_object_or_404,reverse
 from django.views import generic
 from . import models
 from django import template
 from django.contrib.admin.decorators import register
-from django.contrib.auth import login,forms
+from django.contrib.auth import login,forms,logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class index(generic.TemplateView):
@@ -30,7 +32,7 @@ class about(generic.TemplateView):
     
 class signin(generic.TemplateView):
     template_name='registration/signin.html'
-
+    
 def addComment(request, info_id):
     info = get_object_or_404(models.Info, pk=info_id)
     comment = info.comment_set.get(pk=request.POST['comment'])

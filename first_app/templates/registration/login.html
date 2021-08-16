@@ -1,5 +1,5 @@
 {% extends 'registration/pattern.html' %}
-{% csrf_token %}
+
 
 {% block title %}
     Login
@@ -9,20 +9,34 @@
     <a href="{% url 'first_app:signin' %}"><button class="btn btn-outline-primary">ثبت نام</button></a>
 {% endblock buttonLink %}
 
+{% block logif %}
+{% if form.errors %}
+<p class="mb-4 text-center" style="color: antiquewhite;">رمز ورود یا نام کاربری شما اشتباه است</p>
+{% endif %}
+
+{% if usre.is_authenticated %}
+<p class="mb-4 text-center" style="color: antiquewhite;">شما اجازه دسترسی به این صفحه را ندارید</p>
+{% else %}
+<p class="mb-4 text-center" style="color: antiquewhite;">لطفا برای دیدن صفحه وارد حساب کاربری شوید</p>
+{% endif %}
+
+{% endblock logif %}
 {% block log %}
     <div class="col-md-6 col-lg-4">
         <div class="login-wrap p-0">
       <h3 class="mb-4 text-center">ورود</h3>
-      <form action="#" class="signin-form">
+      <form action="{% url 'login' %}" class="signin-form">
+        {% csrf_token %}
           <div class="form-group">
-              <input type="text" class="form-control" placeholder="نام کاربری" required>
+              <input type="username" name="username" class="form-control" placeholder="نام کاربری" required>
           </div>
     <div class="form-group">
-      <input id="password-field" type="password" class="form-control" placeholder="رمز عبور" required>
+      <input id="password-field" type="password" name="password" class="form-control" placeholder="رمز عبور" required>
       <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
     </div>
     <div class="form-group">
-        <button type="submit" class="form-control btn btn-primary submit px-3">ورود</button>
+        <input type="submit" class="form-control btn btn-primary submit px-3" value="ورود">
+        <input type="hidden" value="{{next}}">
     </div>
     <div class="form-group d-md-flex">
         <div class="w-50">
@@ -32,7 +46,7 @@
             </a>
                     </div>
                     <div class="checkbox-wrap checkbox-primary">
-                        <a href="/accounts/password_reset/" style="color: #3becec;">فراموشی رمز؟</a>
+                        <a href="{% url 'password_reset' %}" style="color: #3becec;">فراموشی رمز؟</a>
                     </div>
     </div>
   </form>

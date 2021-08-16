@@ -18,7 +18,6 @@ from django.urls import path,include
 from django.conf.urls import url,include
 from django.conf import settings
 from django.conf.urls.static import static
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first/',include('first_app.urls')),

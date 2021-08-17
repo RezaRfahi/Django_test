@@ -1,6 +1,7 @@
 from django.core.checks.messages import Info
 from django.http.response import HttpResponseRedirect
 from django.views.generic.base import View
+from django.views.generic.edit import CreateView
 from Django_test.settings import MEDIA_ROOT, MEDIA_URL
 from django.shortcuts import render,get_object_or_404,reverse
 from django.views import generic
@@ -34,3 +35,8 @@ class about(generic.TemplateView):
 class signin(generic.CreateView):
     form_class=UserCreationForm
     template_name='registration/signin.html'
+
+
+class addComment(CreateView):
+    model = models.Comment
+    template_name = "first_app/detail.html"

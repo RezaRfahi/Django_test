@@ -49,7 +49,8 @@
                       <p style="text-align: right;" class="pull-right"><small>{{cm.send_date}}</small></p>
                     </div>
                     {% endfor %}
-                      
+                      <form action="{% url 'first_app:comment' info.id %}" method="post">
+                        {% csrf_token %}
                       <div  class="card-footer py-3 border-3" style="background-color: #f8f9fa;">
                         <div class="d-flex flex-start w-100">
                           <div class="form-outline w-100">
@@ -85,9 +86,10 @@
                           </div>
                         </div>
                         <div class="float-end mt-2 pt-1">
-                          <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+                          <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
                         </div>
                       </div>
+                    </form>
                     </div>
                   </div>
                 </div>

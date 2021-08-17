@@ -14,16 +14,20 @@
     <div class="col-md-6 col-lg-4">
         <div class="login-wrap p-0">
       <h3 class="mb-4 text-center">ثبت نام</h3>
-      <form action="#" class="signin-form">
+      <form action="" class="signin-form" method="POST">
+          {% csrf_token %}
           <div class="form-group">
-              <input type="text" class="form-control" placeholder="نام کاربری" required>
+              <input type="text" name="username" id="id_username" class="form-control" placeholder="نام کاربری" required>
           </div>
+          <div class="form-group">
+            <input type="email" name="emil" id="id_email" class="form-control" placeholder="ایمیل" required>
+        </div>
     <div class="form-group">
-      <input id="password-field" type="password" class="form-control" placeholder="رمز عبور" required>
+      <input id="password-field" name="password" type="password" class="form-control" placeholder="رمز عبور" required>
       <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
     </div>
     <div class="form-group">
-        <input id="password-field" type="password" class="form-control" placeholder="تکرار رمز عبور" required>
+        <input id="password-field" name="password" type="password" class="form-control" placeholder="تکرار رمز عبور" required>
         <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
       </div>
     <div class="form-group">

@@ -34,13 +34,3 @@ class about(generic.TemplateView):
 class signin(generic.CreateView):
     form_class=UserCreationForm
     template_name='registration/signin.html'
-    
-def addComment(request, info_id):
-    info = get_object_or_404(models.Info, pk=info_id)
-    comment = info.comment_set.get(pk=request.POST['comment'])
-    comment.comment_like += 1
-    comment.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-    return HttpResponseRedirect(reverse('first_app:info_detail', args=(info.id,)))

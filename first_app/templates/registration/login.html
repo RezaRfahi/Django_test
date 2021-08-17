@@ -25,10 +25,10 @@
     <div class="col-md-6 col-lg-4">
         <div class="login-wrap p-0">
       <h3 class="mb-4 text-center">ورود</h3>
-      <form action="{% url 'login' %}" class="signin-form">
+      <form action="{% url 'login' %}" class="signin-form" method="POST">
         {% csrf_token %}
           <div class="form-group">
-              <input type="username" name="username" class="form-control" placeholder="نام کاربری" required>
+              <input type="text" name="username" class="form-control" placeholder="نام کاربری" required>
           </div>
     <div class="form-group">
       <input id="password-field" type="password" name="password" class="form-control" placeholder="رمز عبور" required>

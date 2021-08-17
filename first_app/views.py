@@ -5,6 +5,7 @@ from Django_test.settings import MEDIA_ROOT, MEDIA_URL
 from django.shortcuts import render,get_object_or_404,reverse
 from django.views import generic
 from . import models
+from django.contrib.auth.forms import UserCreationForm
 from django import template
 from django.contrib.admin.decorators import register
 from django.contrib.auth import login,forms,logout
@@ -30,7 +31,8 @@ class info_detail(generic.DetailView):
 class about(generic.TemplateView):
     template_name='first_app/about.html'
     
-class signin(generic.TemplateView):
+class signin(generic.CreateView):
+    form_class=UserCreationForm
     template_name='registration/signin.html'
     
 def addComment(request, info_id):

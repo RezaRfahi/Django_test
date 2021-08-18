@@ -27,4 +27,4 @@ class Comment(models.Model):
     comment_like=models.IntegerField(default=0)
     
     def __str__(self) -> str:
-        return self.comment_title
+        return self.comment_dsc[:10]

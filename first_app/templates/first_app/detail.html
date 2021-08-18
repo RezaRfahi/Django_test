@@ -49,13 +49,14 @@
                       <p style="text-align: right;" class="pull-right"><small>{{cm.send_date}}</small></p>
                     </div>
                     {% endfor %}
-                      <form action="{% url 'first_app:comment' info.id %}" method="post">
+                      <form action="{% url 'first_app:detail' info.id %}" method="post">
                         {% csrf_token %}
                       <div  class="card-footer py-3 border-3" style="background-color: #f8f9fa;">
                         <div class="d-flex flex-start w-100">
                           <div class="form-outline w-100">
                             <input
                             placeholder="نام"
+                            name="name"
                               type="text"
                               class="form-control"
                               id="name"
@@ -66,11 +67,13 @@
                               type="email"
                               class="form-control"
                               id="email"
+                              name="email"
                               style="background: #fff;"
                             /><br/>
                             <input
                             placeholder="عنوان (اختیاری)"
                               type="text"
+                              name="cm-title"
                               class="form-control"
                               id="cm-title"
                               style="background: #fff;"
@@ -78,6 +81,7 @@
                             <textarea
                               placeholder="توضیحات"
                               class="form-control"
+                              name="description"
                               id="textAreaExample"
                               rows="4"
                               style="background: #fff;"

@@ -35,6 +35,9 @@ class signin(generic.CreateView):
     form_class=UserCreationForm
     template_name='registration/signin.html'
 
+class profile(generic.TemplateView):
+    template_name='registeration/profile.html'
+
 def addComment(request, pk):
    info_get=Info.objects.get(id=pk)
    if request.method == 'POST' :

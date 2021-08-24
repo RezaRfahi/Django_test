@@ -13,7 +13,12 @@
 	
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
-    <body>]
+    <body>
+        
+        {% if  user.is_authenticated%}
+            
+        
+            
         <div class="page-content page-container" id="page-content">
             <div class="padding">
                 <div class="row container d-flex justify-content-center">
@@ -64,5 +69,6 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </body>
 </html>

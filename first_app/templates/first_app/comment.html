@@ -1,0 +1,45 @@
+<form class="addcomment" method="post">
+    {% csrf_token %}
+  <div  class="card-footer py-3 border-3" style="background-color: #f8f9fa;">
+    <div class="d-flex flex-start w-100">
+      <div class="form-outline w-100">
+        <input
+        placeholder="نام"
+        name="name"
+          type="text"
+          class="form-control"
+          id="name"
+          style="background: #fff;"
+          required/>
+        <input
+        placeholder="ایمیل (اختیاری)"
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          style="background: #fff;"
+        /><br/>
+        <input
+        placeholder="عنوان (اختیاری)"
+          type="text"
+          name="cm-title"
+          class="form-control"
+          id="cm-title"
+          style="background: #fff;"
+        />
+        <textarea
+          placeholder="توضیحات"
+          class="form-control"
+          name="description"
+          id="textAreaExample"
+          rows="4"
+          style="background: #fff;"
+          required></textarea>
+        <label class="form-label" for="textAreaExample">Message</label>
+      </div>
+    </div>
+    <div class="float-end mt-2 pt-1">
+      <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+    </div>
+  </div>
+</form>

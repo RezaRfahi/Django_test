@@ -1,9 +1,11 @@
+import first_app
 from django.http.response import HttpResponseRedirect
 from django.views.generic.base import View
 from django.views.generic.edit import CreateView
 from Django_test.settings import MEDIA_ROOT, MEDIA_URL
 from django.shortcuts import redirect, render,get_object_or_404,reverse
 from django.views import generic
+from . import forms
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django import template
@@ -38,12 +40,14 @@ class signin(generic.CreateView):
 class profile(generic.TemplateView):
     template_name='registeration/profile.html'
 
-def addComment(request, pk):
-   info_get=Info.objects.get(id=pk)
-   if request.method == 'POST' :
-      cm=Comment(info=info_get,commenter_name=request.POST.get('name'),
-      comment_dsc=request.POST('description'),
-      comment_title=request.POST('cm-title')
-      )
-   cm.save()
-   redirect('/')
+def addComment(request):
+    if request.method=="POST":
+       form=forms.AddComment(request.POST)
+       if form.is_valid():
+           comment=form.save(commit=False)
+           comment.send_date=timezone.now()
+           comment.save()
+           return redirect('comment',pk=comment.pk)
+    else:
+        form=forms.AddComment()
+    return render(request,'first_app/comment.html',{'form':form})
